@@ -37,7 +37,7 @@ ENV KUBECTL_VERSION=v1.20.15
 # renovate: datasource=github-releases depName=helm/helm
 ARG HELM_VERSION=v3.8.2
 # renovate: datasource=github-releases depName=databus23/helm-diff
-ARG HELM_DIFF_VERSION=v3.4.2
+ARG HELM_DIFF_VERSION=3.5.0
 # renovate: datasource=github-releases depName=kislyuk/yq
 ARG YQ_VERSION=v2.14.0
 # renovate: datasource=github-releases depName=open-policy-agent/opa
