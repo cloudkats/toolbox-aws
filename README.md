@@ -2,12 +2,12 @@
 
 ---
 
-![](https://img.shields.io/github/commit-activity/m/accelerator-blueprints/base-blueprint)
-![](https://img.shields.io/github/last-commit/accelerator-blueprints/base-blueprint)
+![](https://img.shields.io/github/commit-activity/m/cloudkats/toolbox-aws)
+![](https://img.shields.io/github/last-commit/cloudkats/toolbox-aws)
 [![](https://img.shields.io/github/license/ivankatliarchuk/.github)](https://github.com/ivankatliarchuk/.github/LICENCE)
-[![](https://img.shields.io/github/languages/code-size/accelerator-blueprints/base-blueprint)](https://github.com/accelerator-blueprints/base-blueprint)
-[![](https://img.shields.io/github/repo-size/accelerator-blueprints/base-blueprint)](https://github.com/accelerator-blueprints/base-blueprint)
-![](https://img.shields.io/github/languages/top/accelerator-blueprints/base-blueprint?color=green&logo=markdown&logoColor=blue)
+[![](https://img.shields.io/github/languages/code-size/cloudkats/toolbox-aws)](https://github.com/cloudkats/toolbox-aws)
+[![](https://img.shields.io/github/repo-size/cloudkats/toolbox-aws)](https://github.com/cloudkats/toolbox-aws)
+![](https://img.shields.io/github/languages/top/cloudkats/toolbox-aws?color=green&logo=markdown&logoColor=blue)
 
 ---
 
@@ -32,12 +32,12 @@
 [**Create a repository using this template →**][template.generate]
 
 <!-- resources -->
-[template.generate]: https://github.com/accelerator-blueprints/base-blueprint/generate
+[template.generate]: https://github.com/cloudkats/toolbox-aws/generate
 [code-style.badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 
-[governance-badge]: https://github.com/accelerator-blueprints/base-blueprint/actions/workflows/governance.bot.yml/badge.svg
-[governance-action]: https://github.com/accelerator-blueprints/base-blueprint/actions/workflows/governance.bot.yml
+[governance-badge]: https://github.com/cloudkats/toolbox-aws/actions/workflows/governance.bot.yml/badge.svg
+[governance-action]: https://github.com/cloudkats/toolbox-aws/actions/workflows/governance.bot.yml
 
-[governance.link-checker.badge]: https://github.com/accelerator-blueprints/base-blueprint/actions/workflows/governance.links-checker.yml/badge.svg
-[governance.link-checker.status]: https://github.com/accelerator-blueprints/base-blueprint/actions/workflows/governance.links-checker.yml
+[governance.link-checker.badge]: https://github.com/cloudkats/toolbox-aws/actions/workflows/governance.links-checker.yml/badge.svg
+[governance.link-checker.status]: https://github.com/cloudkats/toolbox-aws/actions/workflows/governance.links-checker.yml
 

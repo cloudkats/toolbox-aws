@@ -2,8 +2,8 @@
 _extends: .github
 
 repository:
-  description: ":art: My base blueprint."
-  topics: "ivank, blueprint, accelerator, base"
+  description: "🛠️ Universal Tool for DevOps and Cloud Automation (works with terraform, helm, kubectl, aws and etc) "
+  topics: "ivank, scripts, devops, k8s, automation"
   private: false
   has_issues: true
   has_projects: false
