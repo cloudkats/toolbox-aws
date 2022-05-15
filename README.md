@@ -29,6 +29,9 @@ Universal Tool for DevOps and Cloud Automation.
 
 `toolbox-aws` is both a library and a command-line tool for provisioning, managing and orchestrating workflows across various toolchains.
 
+| Name  | Badges   | Version |
+|:--------------------------|:----------------|:--------------|
+|[Docker](./Dockerfile) | [![][helm.badge]][helm.badge.yml] [![][helm.docker.pulls]][helm.docker] ![][helm.docker.size] | [![][helm.docker.version]][helm.docker] |
 
 ## Inspired
 
@@ -45,3 +48,10 @@ Universal Tool for DevOps and Cloud Automation.
 <!-- resources -->
 [template.generate]: https://github.com/cloudkats/toolbox-aws/generate
 [code-style.badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
+
+[helm.badge]: https://github.com/cloudkats/toolbox-aws/actions/workflows/docker.yaml/badge.svg
+[helm.badge.yml]: https://github.com/cloudkats/toolbox-aws/actions?query=workflow%3Ak8s.helm
+[helm.docker.pulls]: https://img.shields.io/docker/pulls/cloudkats/toolbox-aws?color=green&logo=docker&logoColor=#aae5ed&style=flat-square
+[helm.docker.size]: https://img.shields.io/docker/image-size/cloudkats/toolbox-aws
+[helm.docker.version]: https://img.shields.io/docker/v/cloudkats/toolbox-aws?color=green&logo=docker&logoColor=#aae5ed&style=flat-square
+[helm.docker]: https://hub.docker.com/r/cloudkats/toolbox-aws
