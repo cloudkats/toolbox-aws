@@ -55,6 +55,10 @@ jobs:
           CREATED: ${{ steps.prep.outputs.tag_date }}
           BUILD_URL: ${{ steps.prep.outputs.action_run_url }}
           IMAGE_VERSION: ${{ steps.prep.outputs.docker_version }}
+          # docker login
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
         run: |
           ./bin/build.sh
           ./bin/test.sh
+          ./bin/push.sh
