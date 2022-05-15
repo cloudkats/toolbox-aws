@@ -4,6 +4,8 @@ SHELL := /bin/bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+IMAGE := toolbox-aws:latest
+
 help:
 	@printf "Usage: make [target] [VARIABLE=value]\nTargets:\n"
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -18,3 +20,9 @@ validate: ## Validate files with pre-commit hooks
 build-locally: ## Build docker container locally
 	@docker build . --tag toolbox-aws
 	@docker images
+
+exec: ## Exec to docker container locally
+	@docker run -it --rm $(IMAGE)
+
+test: ## Test docker locally
+	export IMAGE=$(IMAGE) && ./bin/test.sh

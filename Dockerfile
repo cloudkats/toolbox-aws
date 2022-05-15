@@ -8,7 +8,7 @@
 # docker run --rm -it toolbox-aws /bin/bash
 ###
 FROM hashicorp/terraform:1.1.9 as terraform
-
+FROM node:17-alpine AS node
 
 FROM alpine:3.15
 
@@ -19,10 +19,12 @@ LABEL org.opencontainers.image.authors="cloudkats@gmail.com" \
     org.opencontainers.image.demo="https://github.com/cloudkats/toolbox-aws/examples" \
     org.opencontainers.image.documentation="https://github.com/cloudkats/toolbox-aws/readme.md" \
     org.opencontainers.image.licenses="https://github.com/cloudkats/toolbox-aws/LICENCE" \
-    org.opencontainers.image.tools="terraform terragrunt kubectl hel opa yq jq" \
+    org.opencontainers.image.tools="terraform terragrunt kubectl hel opa yq jq bats nodejs" \
     org.opencontainers.image.plugins="helm-diff"
 
 COPY --from=terraform /bin/terraform /bin/terraform
+COPY --from=node /usr/lib /usr/lib
+COPY --from=node /usr/local/bin /usr/local/bin
 
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
 ENV TERRAGRUNT_VERSION=0.37.1
@@ -39,12 +41,17 @@ ARG YQ_VERSION=v2.14.0
 # renovate: datasource=github-releases depName=open-policy-agent/opa
 ARG OPA_VERSION=0.40.0
 
+ENV APK_PACKAGES="bash groff less python3 py3-pip curl ca-certificates jq git"
+
 # hadolint ignore=DL3018,DL3013
 RUN apk update && apk add --no-cache --virtual .build-deps \
-    && apk -Uuv add --no-cache bash groff less python3 py3-pip curl ca-certificates jq git \
+    && apk -Uuv add --no-cache ${APK_PACKAGES} \
     && pip --no-cache-dir install awscli boto3 yq==${YQ_VERSION##*v} \
+    && git clone https://github.com/bats-core/bats-core.git /opt/bats/ \
     && rm /var/cache/apk/*
-RUN ln -s /usr/bin/python3 /usr/bin/python
+
+RUN ln -s /usr/bin/python3 /usr/bin/python;\
+    ln -s /opt/bats/bin/bats /usr/sbin/bats;
 
 ADD https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 /usr/bin/terragrunt
 RUN chmod +x /usr/bin/terragrunt
