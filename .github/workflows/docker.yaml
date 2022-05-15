@@ -1,0 +1,59 @@
+name: docker
+
+on:
+  push:
+    paths:
+      - bin/**
+      - .github/workflows/docker.yaml
+  workflow_dispatch:
+    inputs:
+      push:
+        description: Push to docker registry
+        required: true
+        default: false
+        type: boolean
+
+env:
+  DOCKER_REPO: cloudkats
+  DOCKER_IMAGE: toolbox-aws
+
+jobs:
+  buildonpush:
+    name: buildonpush
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' && github.event.inputs.push == 'true'
+      || github.event_name == 'push' && (github.event.created == false && github.event.forced == false)
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: prepare
+        id: prep
+        run: |
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+
+          IMAGE_ID="${DOCKER_REPO}/${DOCKER_IMAGE}"
+
+          echo "::set-output name=ACTION_RUN_URL::https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
+          echo "::set-output name=ACTION_WORKFLOW_URL::https://github.com/${{github.repository}}/actions/workflows/${{github.action}}.yml"
+          echo "::set-output name=DOCKER_VERSION::0.0.1"
+
+          echo ::set-output name=version::${VERSION}
+          echo ::set-output name=tag_date::$(date -u +'%Y-%m')
+          echo ::set-output name=sha::${GITHUB_SHA::8}
+          echo ::set-output name=image_id::${IMAGE_ID}
+
+      - name: build & push docker image
+        env:
+          IMAGE_ID: ${{ steps.prep.outputs.image_id }}
+          IMAGE: ${{ env.DOCKER_IMAGE }}
+          TAG_VERSION_DATE: ${{ steps.prep.outputs.tag_date }}
+          TAG_VERSION_SHA: ${{ steps.prep.outputs.sha }}
+          TAG_VERSION: ${{ steps.prep.outputs.version }}
+          CREATED: ${{ steps.prep.outputs.tag_date }}
+          BUILD_URL: ${{ steps.prep.outputs.action_run_url }}
+          IMAGE_VERSION: ${{ steps.prep.outputs.docker_version }}
+        run: |
+          ../bin/build.sh

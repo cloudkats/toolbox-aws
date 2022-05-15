@@ -14,3 +14,7 @@ hooks: ## Setup pre commit.
 
 validate: ## Validate files with pre-commit hooks
 	@pre-commit run --all-files
+
+build-locally: ## Build docker container locally
+	@docker build . --tag toolbox-aws
+	@docker images
