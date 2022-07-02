@@ -31,7 +31,7 @@ COPY --from=node /usr/local/bin /usr/local/bin
 # renovate: datasource=github-releases depName=gruntwork-io/terragrunt
 ENV TERRAGRUNT_VERSION=0.37.1
 # renovate: datasource=github-releases depName=kubernetes-sigs/aws-iam-authenticator
-ENV AWS_IAM_AUTHENTICATOR_VERSION=v0.5.7
+ENV AWS_IAM_AUTHENTICATOR_VERSION=0.5.9
 # renovate: datasource=github-tags depName=kubernetes/kubectl
 ENV KUBECTL_VERSION=v1.20.15
 # renovate: datasource=github-releases depName=helm/helm
