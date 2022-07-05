@@ -41,7 +41,7 @@ ARG HELM_DIFF_VERSION=3.5.0
 # renovate: datasource=github-releases depName=kislyuk/yq
 ARG YQ_VERSION=v2.14.0
 # renovate: datasource=github-releases depName=open-policy-agent/opa
-ARG OPA_VERSION=0.40.0
+ARG OPA_VERSION=0.42.0
 
 ENV APK_PACKAGES="bash groff less python3 py3-pip curl ca-certificates jq git"
 
