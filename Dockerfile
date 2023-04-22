@@ -8,7 +8,7 @@
 # docker run --rm -it toolbox-aws /bin/bash
 ###
 # https://hub.docker.com/r/hashicorp/terraform
-FROM hashicorp/terraform:1.2.5 as terraform
+FROM hashicorp/terraform:1.2.9 as terraform
 # https://hub.docker.com/_/node?tab=tags&page=2&name=17
 FROM node:20-alpine AS node
 
