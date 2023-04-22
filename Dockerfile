@@ -39,7 +39,7 @@ ARG HELM_VERSION=3.11.3
 # renovate: datasource=github-releases depName=databus23/helm-diff
 ARG HELM_DIFF_VERSION=3.5.0
 # renovate: datasource=github-releases depName=kislyuk/yq
-ARG YQ_VERSION=3.0.2
+ARG YQ_VERSION=3.2.1
 # renovate: datasource=github-releases depName=open-policy-agent/opa
 ARG OPA_VERSION=0.51.0
 
