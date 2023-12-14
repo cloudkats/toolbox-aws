@@ -8,11 +8,11 @@
 # docker run --rm -it toolbox-aws /bin/bash
 ###
 # https://hub.docker.com/r/hashicorp/terraform
-FROM hashicorp/terraform:1.2.9 as terraform
+FROM hashicorp/terraform:1.6.6 as terraform
 # https://hub.docker.com/_/node?tab=tags&page=2&name=17
 FROM node:20-alpine AS node
 
-FROM alpine:3.16
+FROM alpine:3.19
 
 LABEL org.opencontainers.image.authors="cloudkats@gmail.com" \
     org.opencontainers.image.vendor="https://github.com/cloudkats" \
