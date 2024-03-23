@@ -25,7 +25,7 @@ jobs:
       github.event_name == 'workflow_dispatch' && github.event.inputs.push == 'true'
       || github.event_name == 'push' && (github.event.created == false && github.event.forced == false)
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: prepare
         id: prep
@@ -64,7 +64,7 @@ jobs:
           ./bin/push.sh
 
       - name: docker-hub-description
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
