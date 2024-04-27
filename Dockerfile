@@ -10,7 +10,7 @@
 # https://hub.docker.com/r/hashicorp/terraform
 FROM hashicorp/terraform:1.2.9 as terraform
 # https://hub.docker.com/_/node?tab=tags&page=2&name=17
-FROM node:20-alpine AS node
+FROM node:22-alpine AS node
 
 FROM alpine:3.16
 
