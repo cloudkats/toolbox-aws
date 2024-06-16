@@ -35,7 +35,7 @@ ENV AWS_IAM_AUTHENTICATOR_VERSION=0.6.2
 # renovate: datasource=github-tags depName=kubernetes/kubectl
 ENV KUBECTL_VERSION=v1.20.15
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.11.3
+ARG HELM_VERSION=3.15.2
 # renovate: datasource=github-releases depName=databus23/helm-diff
 ARG HELM_DIFF_VERSION=3.5.0
 # renovate: datasource=github-releases depName=kislyuk/yq
